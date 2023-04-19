@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 import LineChart from './Component/LineChart';
 import BarChart from './Component/BarChart';
 import { data } from './Constraints';
@@ -15,6 +13,8 @@ function App() {
   return (
     <div className="App">
       <div style={cssD}>
+
+        {/* pass Json data as props to retrieve chartdata*/}
       <LineChart data={data}/>
       <BarChart data={data}/>
       </div>

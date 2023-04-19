@@ -4,6 +4,7 @@ const LineChart = ({data}) => {
   const [fla,setFla] = useState("");
   const [as,setAs] = useState("");
   useEffect(()=>{
+    // create new array of Alcohol and Magnesium values and save to states
     const flav = data.map((x)=>x.Flavanoids)
     const ash = data.map((x)=>x.Ash)
     setFla(flav)

@@ -3,22 +3,25 @@ import ReactECharts from 'echarts-for-react';
 const BarChart = ({data}) => {
   const [alc,setAlc] = useState("");
   const [mn,setMn] = useState("");
+
   useEffect(()=>{
+
+    // create new array of Alcohol and Magnesium values and save to states
     const alco = data.map((x)=>x.Alcohol)
     const mag = data.map((x)=>x.Magnesium)
     setAlc(alco)
     setMn(mag)
   },[data])
+
+  // create new array of Alcohol * Magnesium values
+  const dd=  data.map((item) => {
+    return [item.Alcohol, item.Magnesium];
+  });
     const options = {
       title: {
         text: 'Bar Chart'
       },
-      tooltip: {
-        trigger: 'axis'
-      },
-      legend: {
-        data: ['Alcohol', 'Magnesium']
-      },
+   
         grid: {
         left: '3%',
         right: '15%',
@@ -26,7 +29,7 @@ const BarChart = ({data}) => {
         containLabel: true},
         xAxis: {
           type: 'category',
-          boundaryGap: false,
+          data:alc,
           name:'Alcohol'
         },
         yAxis: {
@@ -35,13 +38,7 @@ const BarChart = ({data}) => {
         },
         series: [
           {
-            data: alc,
-            name:'Alcohol',
-            type: 'bar',
-          },
-          {
-            data: mn,
-            name:'Magnesium',
+            data: dd,
             type: 'bar',
           },
         ],
