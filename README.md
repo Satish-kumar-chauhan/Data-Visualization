@@ -15,3 +15,6 @@ Dependencies This project uses the following dependencies:
 
 React
 ECharts for React
+
+Screenshot
+https://www.linkpicture.com/q/chart_19.png
